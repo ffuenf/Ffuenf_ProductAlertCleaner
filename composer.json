@@ -1,0 +1,34 @@
+{
+  "name": "Ffuenf/Ffuenf_ProductAlertCleaner",
+  "license": "MIT",
+  "description": "This is a extension for Magento Community Edition that allows you to clean up the product alert tables in a scheduler task.",
+  "authors": [
+    {
+      "name": "Achim Rosenhagen",
+      "email": "a.rosenhagen@ffuenf.de"
+    }
+  ],
+  "type": "magento-module",
+  "require-dev": {
+    "phpunit/phpunit": "4.*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.firegento.com"
+    }
+  ],
+  "extra": {
+    "magento-root-dir": "./magento/",
+    "map": [
+      [
+        "app/code/community/Ffuenf/ProductAlertCleaner",
+        "app/code/community/Ffuenf/ProductAlertCleaner"
+      ],
+      [
+        "app/etc/modules/Ffuenf_ProductAlertCleaner.xml",
+        "app/etc/modules/Ffuenf_ProductAlertCleaner.xml"
+      ]
+    ]
+  }
+}

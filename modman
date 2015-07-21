@@ -1,0 +1,3 @@
+app/code/community/Ffuenf/ProductAlertCleaner app/code/community/Ffuenf/ProductAlertCleaner
+app/etc/modules/Ffuenf_ProductAlertCleaner.xml app/etc/modules/Ffuenf_ProductAlertCleaner.xml
+shell/ffuenf_productalertcleaner.php shell/ffuenf_productalertcleaner.php

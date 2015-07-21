@@ -1,0 +1,2 @@
+config:
+  default/productalertcleaner/general/enable: 1

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ffuenf_ProductAlertCleaner extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category   Ffuenf
+ *
+ * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
+ * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @license    http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <modules>
+        <Ffuenf_ProductAlertCleaner>
+            <version>1.0.0</version>
+        </Ffuenf_ProductAlertCleaner>
+    </modules>
+    <global>
+        <helpers>
+            <ffuenf_productalertcleaner>
+                <class>Ffuenf_ProductAlertCleaner_Helper</class>
+            </ffuenf_productalertcleaner>
+        </helpers>
+        <models>
+            <ffuenf_productalertcleaner>
+                <class>Ffuenf_ProductAlertCleaner_Model</class>
+            </ffuenf_productalertcleaner>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <productalertcleaner>
+                <schedule>
+                    <config_path>productalertcleaner/general/scheduler_cron_expr</config_path>
+                </schedule>
+                <run>
+                    <model>ffuenf_productalertcleaner/cleaner::clean</model>
+                </run>
+            </productalertcleaner>
+        </jobs>
+    </crontab>
+    <default>
+        <productalertcleaner>
+            <general>
+                <enable>1</enable>
+                <scheduler_cron_expr>15 3 * * *</scheduler_cron_expr>
+                <clean_alerts_older_than>365</clean_alerts_older_than>
+            </general>
+        </productalertcleaner>
+    </default>
+    <phpunit>
+        <suite>
+            <modules>
+                <Ffuenf_ProductAlertCleaner/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>
