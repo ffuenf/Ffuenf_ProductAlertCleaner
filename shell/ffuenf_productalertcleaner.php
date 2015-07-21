@@ -32,8 +32,8 @@ class Ffuenf_Shell_ProductalertCleaner extends Mage_Shell_Abstract
     public function run()
     {
         echo "Start Ffuenf_ProductAlertCleaner\r\n";
-        $run = Mage::getModel("ffuenf_productalertcleaner/cleaner")->clean(null);
-        var_dump($run);
+        $run = Mage::getModel("ffuenf_productalertcleaner/cleaner")->clean();
+        print_r($run);
         echo "End Ffuenf_ProductAlertCleaner\r\n";
     }
 
