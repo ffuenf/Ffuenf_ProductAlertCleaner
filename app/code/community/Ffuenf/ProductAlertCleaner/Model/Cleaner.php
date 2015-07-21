@@ -20,12 +20,12 @@
 class Ffuenf_ProductAlertCleaner_Model_Cleaner {
 
     /**
-    * Clean old quote entries.
-    * This method will be called via a Magento crontab task.
-    *
-    * @param Varien_Event_Observer $observer
-    * @return void
-    */
+     * Clean old quote entries.
+     * This method will be called via a Magento crontab task.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return void
+     */
     public function clean($observer = null)
     {
         if (!Mage::helper('ffuenf_productalertcleaner')->isExtensionActive()) {
@@ -52,7 +52,7 @@ class Ffuenf_ProductAlertCleaner_Model_Cleaner {
         $stmt = $writeConnection->query($sql3);
         $report['alerts']['old']['count'] = $stmt->rowCount();
         $report['alerts']['old']['duration'] = time() - $startTime;
-        Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where older than ' . $olderThan . ' days (duration: '.$report['alerts']['old']['duration'].', row count: '.$report['alerts']['old']['count'].')');
+        Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where older than ' . $olderThan . ' days (duration: ' . $report['alerts']['old']['duration'] . ', row count: ' . $report['alerts']['old']['count'] . ')');
 
         // delete where emails have been send
         // DELETE FROM `product_alert_stock` WHERE `product_alert_stock`.`send_count` > 0;
@@ -64,7 +64,7 @@ class Ffuenf_ProductAlertCleaner_Model_Cleaner {
         $stmt = $writeConnection->query($sql1);
         $report['alerts']['send_count']['count'] = $stmt->rowCount();
         $report['alerts']['send_count']['duration'] = time() - $startTime;
-        Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where emails already have been send (duration: '.$report['alerts']['send_count']['duration'].', row count: '.$report['alerts']['send_count']['count'].')');
+        Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where emails already have been send (duration: ' . $report['alerts']['send_count']['duration'] . ', row count: ' . $report['alerts']['send_count']['count'] . ')');
 
         // delete where not valid emails
         // DELETE FROM `product_alert_stock` WHERE `email` NOT REGEXP '^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$';
@@ -78,7 +78,7 @@ class Ffuenf_ProductAlertCleaner_Model_Cleaner {
             $stmt = $writeConnection->query($sql2);
             $report['alerts']['invalid_emails']['count'] = $stmt->rowCount();
             $report['alerts']['invalid_emails']['duration'] = time() - $startTime;
-            Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where invalid email addresses (duration: '.$report['alerts']['invalid_emails']['duration'].', row count: '.$report['alerts']['invalid_emails']['count'].')');
+            Mage::log('[PRODUCTALERTCLEANER] Cleaning productalerts where invalid email addresses (duration: ' . $report['alerts']['invalid_emails']['duration'] . ', row count: ' . $report['alerts']['invalid_emails']['count'] . ')');
         }
 
         // delete duplicates
@@ -92,9 +92,9 @@ class Ffuenf_ProductAlertCleaner_Model_Cleaner {
             $stmt = $writeConnection->query($sql4);
             $report['alerts']['duplicates']['count'] = $stmt->rowCount();
             $report['alerts']['duplicates']['duration'] = time() - $startTime;
-            Mage::log('[PRODUCTALERTCLEANER] Cleaning duplicate productalerts (duration: '.$report['alerts']['duplicates']['duration'].', row count: '.$report['alerts']['duplicates']['count'].')');
+            Mage::log('[PRODUCTALERTCLEANER] Cleaning duplicate productalerts (duration: ' . $report['alerts']['duplicates']['duration'] . ', row count: ' . $report['alerts']['duplicates']['count'] . ')');
         }
 
-       return $report;
+        return $report;
     }
 }

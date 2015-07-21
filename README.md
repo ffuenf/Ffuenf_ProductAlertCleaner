@@ -1,5 +1,5 @@
-Ffuenf_Canonical
-================
+Ffuenf_ProductAlertCleaner
+==========================
 [![GitHub tag](https://img.shields.io/github/tag/ffuenf/Ffuenf_ProductAlertCleaner.svg)][tag]
 [![Build Status](https://img.shields.io/travis/ffuenf/Ffuenf_ProductAlertCleaner.svg)][travis]
 [![Code Quality](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_ProductAlertCleaner/badges/quality-score.png)][code_quality]
