@@ -24,7 +24,7 @@ class Ffuenf_ProductAlertCleaner_Model_Cleaner
      * Clean old quote entries.
      * This method will be called via a Magento crontab task.
      *
-     * @return null|array<String>
+     * @return null|Ffuenf_ProductAlertCleaner_Model_Cleaner
      */
     public function clean()
     {
