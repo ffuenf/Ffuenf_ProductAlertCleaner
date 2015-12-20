@@ -20,7 +20,7 @@
 <config>
     <modules>
         <Ffuenf_ProductAlertCleaner>
-            <version>1.0.0</version>
+            <version>1.1.1</version>
         </Ffuenf_ProductAlertCleaner>
     </modules>
     <global>
@@ -29,17 +29,29 @@
                 <class>Ffuenf_ProductAlertCleaner_Helper</class>
             </ffuenf_productalertcleaner>
         </helpers>
+        <blocks>
+            <ffuenf_productalertcleaner>
+                <class>Ffuenf_ProductAlertCleaner_Block</class>
+            </ffuenf_productalertcleaner>
+        </blocks>
         <models>
             <ffuenf_productalertcleaner>
                 <class>Ffuenf_ProductAlertCleaner_Model</class>
             </ffuenf_productalertcleaner>
         </models>
+        <resources>
+            <ffuenf_productalertcleaner_setup>
+                <setup>
+                    <module>Ffuenf_ProductAlertCleaner</module>
+                </setup>
+            </ffuenf_productalertcleaner_setup>
+        </resources>
     </global>
     <crontab>
         <jobs>
             <productalertcleaner>
                 <schedule>
-                    <config_path>productalertcleaner/general/scheduler_cron_expr</config_path>
+                    <config_path>ffuenf_productalertcleaner/general/scheduler_cron_expr</config_path>
                 </schedule>
                 <run>
                     <model>ffuenf_productalertcleaner/cleaner::clean</model>
@@ -48,14 +60,17 @@
         </jobs>
     </crontab>
     <default>
-        <productalertcleaner>
+        <ffuenf_productalertcleaner>
             <general>
                 <enable>1</enable>
                 <scheduler_cron_expr>15 3 * * *</scheduler_cron_expr>
                 <clean_alerts_older_than>365</clean_alerts_older_than>
             </general>
-        </productalertcleaner>
+        </ffuenf_productalertcleaner>
     </default>
+    <uninstall>
+        <filename>uninstall.txt</filename>
+    </uninstall>
     <phpunit>
         <suite>
             <modules>

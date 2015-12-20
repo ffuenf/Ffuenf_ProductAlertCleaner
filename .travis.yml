@@ -1,27 +1,48 @@
 language: php
 sudo: false
 php:
-- 5.3
 - 5.4
 - 5.5
 - 5.6
-- hhvm
+- 7.0
 matrix:
+  fast_finish: true
   allow_failures:
+  - env: MAGENTO_VERSION=magento-ce-1.9.1.1
+  - env: MAGENTO_VERSION=magento-ce-1.9.1.0
+  - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.2
+  - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.1
+  - php: 5.4
+    env: MAGENTO_VERSION=magento-ce-1.9.2.0
   - php: 5.6
-  - php: hhvm
+    env: MAGENTO_VERSION=magento-mirror-1.8.1.0
+  - php: 7.0
+    env: MAGENTO_VERSION=magento-mirror-1.8.1.0
 env:
-  matrix:
-  - MAGENTO_VERSION=magento-ce-1.9.1.1
-  - MAGENTO_VERSION=magento-ce-1.8.1.0
-  - MAGENTO_VERSION=magento-ce-1.7.0.2
-  - MAGENTO_VERSION=magento-ce-1.6.2.0
   global:
-  - secure: WmAp4zJJdudJEJzINw8YJEW54vs3xMfrr0r7sT0eNkoesuyRjyJ2Ki5SQ3E9ef85I+glGPZQJrmZOuUKp2XHYKOY4+FbyWJTZify5pwMSDJPb/xNRalTLDyHJyCTPgT+2F16WAi35biR/myiVQ8SOPSpIQGFy50DesxscNlxVhNm5SaCLK+TCwPr1nKQJWPsDIeap3MKpjva9IV04O31XYVPp6pc2xGCWUaSLoITpKswz+ZLgnKGz/lLq+9Wpw2uw5Y8D+K/YEHRVvK8o6Y24kRCpqFMvVlAYWeE4lH5ZbkIfGMwweWPOcEU7EcB8LEhEya7ZuRnXZvu7bMTFGaVWHWVj/0qv60JdTfE7ZJ0OR4u542ri+k4fPZprZ6gwhYguHDlOjSorFabh9LGjSSUZGTW4rf+AtXEu8vWqe4ysFtZZDEQGpXv7Io30X/KOaksJxqZmFQZYuF482ufGFgXkL1ygItuav0QNorLminTZJeWAcw4yVDjSLA7ZJ8o+R8sz87xm+Zy46UUFfm9Z1/DyFupKCy9KEr1pKmsJGBNiLbl5IuTCpW97XD6bBEd5OfTaksYnmUTz0xBUhntfpHEQjNSEA57fdqAt/wARzPVwjRhbPV01IXKO+QCqLOY/7C2Wd6lVe+9rTJBmV+tdUbL6y+GY46Hf2/R0n+25bCRVoc=
-  - secure: REt56t49rijnw6nPUfUHzKngKuhYP9JmJLisX17NG0m5cV5wQvdNNvmwR91WL420Omjf0Jc4+ryTo+thjc8Tzt1JgcRuD6tNg8C2ySwEwAJVe588bJ1n6fqh5pJTF8MRvLl43eL7iLC1GavmtgYRklidmv6vKHLqZup5sMpmNlFAF2IfIFe/A5ZT/SryODHOhzVmVBcJNsHo0os7Mp1toC3SYc8TBuwK1yTB1IL55LwDQ86yzNU1S6u5o1b+l30TSUHo4GoiklEHYD8lY4DBkL79H72OFeK3CUbDAFxvp4HOnbqyPpxfXz+qyuHxikq8F4a04EVFJGRkCbUWNachUQnOt6yWqk7OXjoKbwfUdDSLXtN/OhvDzuAJt9el/3f4PAHG0XSXIcqwloAQGA4GGjg72GJsWEQqfkxA9yCkk5uUDCkV2Nz1NH0dAYPILUbbzbJspL64FfvqNMZbaIxnAatsrgOxPkPe8lWRvyxf6oGmHBkWjbN5mH+PJ96kz/1wLHmSy7t/j/lydvzEa+B+A5kxAHFlZqA1A0t5G0GJ/2sBTAxaw5J4vXOQ4sNYYkEfhaExTvlqqoE9JI0cn/u310qC6y8a+T0aRwZydyK2LogOicGQw133zq4czCkx7IkH5ZUU5JbTW/+y0k+l97ymGObhYcLKpRzQ+UwpheJ0q7k=
+  - APPNAME=Ffuenf_ProductAlertCleaner
+  matrix:
+  - MAGENTO_VERSION=magento-ce-1.9.2.2
+  - MAGENTO_VERSION=magento-ce-1.9.1.1
+  - MAGENTO_VERSION=magento-mirror-1.8.1.0
+  - MAGENTO_VERSION=magento-mirror-1.7.0.2
+  - MAGENTO_VERSION=magento-mirror-1.6.2.0
+before_script:
+- composer self-update
+- composer install --prefer-source
 script:
 - curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/setup.sh
   | bash
-notifications:
-  slack:
-    secure: HHJMZo8E0EytwtTENJ8XKxotnrSAxLoi+n+LygJbLO/IhTtaxW5rGp8+QLYy9+qXq6Zn+3+k6dAH+IZ7sHGwOkEl2wXdvr+TJCx6OS52Rgrf+TPbBBbTHfDp+9ZHWaJS6LiNEdcR2OTu0aanIPCsCWiNKXNy8MdAWxu7J6uARCZnbrIyNFEqhq8TpVq1Qd2TLMWP5v+SFOjppaq1GSBn29PGRQPQd6TeM1FS+WAqFBi8WUhZGft4W4uhtpd4qszTrKTPd+1zbUL9fJPB961DnLSgnCqRFNdGHR2KQruya5+hUxsUAMkBveCLY81D/KEvn0+IuAlkeAnJ1LDxPL/r38e2cKdL3aBNMul8eFCNNoJG+Q4+7rucD5EWK1rrT9yE3DZhaQc+HmcW0C6uU6+GpoY4QO1To7pFvFvFpr82JC+82e7Kemc8qLA3Cg32neh+9/pvmSzma8pkoo9mY7TQEwUit7tqA2ALZKcKw+f77hLih69OIKfVlgD6XjTpihhzmFGXG3cz4uJeoFQm4q+TkO8zydOkxeGHiYhWRXUJyNat2NTJUKRxYvFN1vSzu0zkBRk0ny+N1q/R0b+CF1OsDLl/fBgj8dm6jQLXNRK50jaxyM2eLWtGsnykyYU2ZvlT52f+FjhMMr4GdK5aU6FIrIm7eye+cp6TgLj9PqK6h2Q=
+before_deploy:
+- gem install mime-types -v 2.6.2 # workaround for https://github.com/travis-ci/travis-ci/issues/5145
+deploy:
+  provider: releases
+  file:
+  - "${APPNAME}-${TRAVIS_TAG}.zip"
+  - "${APPNAME}-${TRAVIS_TAG}.tar.gz"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true

@@ -29,9 +29,9 @@
                         <children>
                             <config>
                                 <children>
-                                    <productalertcleaner translate="title" module="ffuenf_productalertcleaner">
+                                    <ffuenf_productalertcleaner translate="title" module="ffuenf_productalertcleaner">
                                         <title>ProductAlertCleaner Module</title>
-                                    </productalertcleaner>
+                                    </ffuenf_productalertcleaner>
                                 </children>
                             </config>
                         </children>

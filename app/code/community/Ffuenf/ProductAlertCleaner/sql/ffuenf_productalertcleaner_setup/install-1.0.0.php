@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
- * Ffuenf_ProductAlertCleaner extension
+ * Ffuenf_Pagespeed extension.
  *
  * NOTICE OF LICENSE
  *
@@ -15,16 +14,10 @@
  * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
  * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
-*/
--->
-<config>
-    <modules>
-        <Ffuenf_ProductAlertCleaner>
-            <active>true</active>
-            <codePool>community</codePool>
-            <depends>
-                <Ffuenf_Common />
-            </depends>
-        </Ffuenf_ProductAlertCleaner>
-    </modules>
-</config> 
+ */
+
+$installer = $this;
+/* @var $installer Mage_Core_Model_Resource_Setup */
+
+$installer->startSetup();
+$installer->endSetup();

@@ -18,27 +18,30 @@
 */
 -->
 <config>
-    <tabs>
-        <ffuenf>
-            <label>ffuenf</label>
-            <sort_order>508</sort_order>
-        </ffuenf>
-    </tabs>
     <sections>
-        <productalertcleaner translate="label" module="ffuenf_productalertcleaner">
+        <ffuenf_productalertcleaner translate="label" module="ffuenf_productalertcleaner">
             <tab>ffuenf</tab>
-            <label>ProductAlert Cleaner</label>
-            <sort_order>900</sort_order>
+            <label>ProductAlertCleaner</label>
+            <sort_order>10</sort_order>
             <show_in_default>1</show_in_default>
-            <show_in_website>1</show_in_website>
-            <show_in_store>1</show_in_store>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
             <groups>
+                <teaser translate="label" module="ffuenf_productalertcleaner">
+                    <frontend_model>Ffuenf_ProductAlertCleaner_Block_Adminhtml_System_Config_Fieldset_Teaser</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                </teaser>
                 <general translate="label" module="ffuenf_productalertcleaner">
                     <label>General Configuration</label>
                     <sort_order>1000</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
                     <fields>
                         <enable translate="label">
                             <label>Enable</label>
@@ -57,6 +60,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
                         </scheduler_cron_expr>
                         <clean_alerts_older_than>
                             <label>Clean product alerts older than</label>
@@ -66,10 +72,13 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
                         </clean_alerts_older_than>
                     </fields>
                 </general>
             </groups>
-        </productalertcleaner>
+        </ffuenf_productalertcleaner>
     </sections>
 </config>

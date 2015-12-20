@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Ffuenf_ProductAlertCleaner extension.
  *
@@ -17,11 +16,6 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-/**
- * @see Ffuenf_ProductAlertCleaner_Helper_Data
- *
- * @loadSharedFixture shared
- */
 require_once 'abstract.php';
 
 class Ffuenf_Shell_ProductalertCleaner extends Mage_Shell_Abstract
