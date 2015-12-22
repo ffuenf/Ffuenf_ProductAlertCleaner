@@ -17,13 +17,12 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-class Ffuenf_ProductAlertCleaner_Helper_Data extends Ffuenf_ProductAlertCleaner_Helper_Core
+class Ffuenf_ProductAlertCleaner_Helper_Data extends Ffuenf_Common_Helper_Core
 {
-
     /**
      * config paths.
      */
-    const CONFIG_EXTENSION_ACTIVE = 'productalertcleaner/general/enable';
+    const CONFIG_EXTENSION_ACTIVE = 'ffuenf_productalertcleaner/general/enable';
 
     /**
      * Variable for if the extension is active.

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Ffuenf_ProductAlertCleaner extension.
  *
@@ -17,13 +16,23 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-/**
- * @see Ffuenf_ProductAlertCleaner_Helper_Data
- *
- * @loadSharedFixture shared
- */
 class Ffuenf_ProductAlertCleaner_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
 {
+    /**
+     * @var Ffuenf_ProductAlertCleaner_Helper_Data
+     */
+    protected $_helper;
+
+    public function setUp()
+    {
+        $this->_helper = new Ffuenf_ProductAlertCleaner_Helper_Data();
+    }
+
+    public function tearDown()
+    {
+        $this->_helper = null;
+    }
+
     /**
      * Tests is extension active.
      *
@@ -33,7 +42,7 @@ class Ffuenf_ProductAlertCleaner_Test_Helper_Data extends EcomDev_PHPUnit_Test_C
     public function testIsExtensionActive()
     {
         $this->assertTrue(
-            Mage::helper('ffuenf_productalertcleaner')->isExtensionActive(),
+            $this->_helper->isExtensionActive(),
             'Extension is not active please check config'
         );
     }
