@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of Ffuenf_ProductAlertCleaner.
 
+## 1.1.2 (February 25, 2016)
+
+* update travis build-matrix
+* [docs] copyright notice
+
 ## 1.1.1 (December 20, 2015)
 
 * update travis build-matrix
